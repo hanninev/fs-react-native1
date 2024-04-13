@@ -44,6 +44,14 @@ const styles = StyleSheet.create({
     },
 });
 
+function formatNumber(num) {
+    if (num < 1000) {
+        return num.toString();
+    } else {
+        return (num / 1000).toFixed(1) + 'k';
+    }
+}
+
 const RepositoryItem = ({ item }) => (
     <View style={styles.container}>
         <View style={styles.topRow}>
@@ -54,7 +62,7 @@ const RepositoryItem = ({ item }) => (
                 }}
             />
             <View style={styles.basicInfo}>
-                <Text fontSize='subheading' fontWeight='bold'>{item.fullName}</Text>
+                <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.fullName)}</Text>
                 <Text style={styles.secondaryText}>{item.description}</Text>
                 <View style={styles.languageTag}><Text style={{ color: theme.colors.white }}>{item.language}</Text></View>
             </View>
@@ -62,21 +70,21 @@ const RepositoryItem = ({ item }) => (
 
         <View style={styles.statContainer}>
             <View style={styles.statItem}>
-                <Text fontSize='subheading' fontWeight='bold'>{item.stargazersCount}</Text>
+                <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.stargazersCount)}</Text>
                 <Text style={styles.secondaryText}>Stars</Text>
             </View>
             <View style={styles.statItem}>
-                <Text fontSize='subheading' fontWeight='bold'>{item.forksCount}</Text>
+                <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.forksCount)}</Text>
                 <Text style={styles.secondaryText}>Forks</Text>
             </View>
 
             <View style={styles.statItem}>
-                <Text fontSize='subheading' fontWeight='bold'>{item.reviewCount}</Text>
+                <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.reviewCount)}</Text>
                 <Text style={styles.secondaryText}>Reviews</Text>
             </View>
 
             <View style={styles.statItem}>
-                <Text fontSize='subheading' fontWeight='bold'>{item.ratingAverage}</Text>
+                <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.ratingAverage)}</Text>
                 <Text style={styles.secondaryText}>Rating</Text>
             </View>
 
