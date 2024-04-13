@@ -62,7 +62,7 @@ const RepositoryItem = ({ item }) => (
                 }}
             />
             <View style={styles.basicInfo}>
-                <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.fullName)}</Text>
+                <Text fontSize='subheading' fontWeight='bold'>{item.fullName}</Text>
                 <Text style={styles.secondaryText}>{item.description}</Text>
                 <View style={styles.languageTag}><Text style={{ color: theme.colors.white }}>{item.language}</Text></View>
             </View>
