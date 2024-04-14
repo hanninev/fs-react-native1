@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     basicInfo: {
+        flexGrow: 1,
+        flexShrink: 1,
         marginLeft: 20,
     },
     languageTag: {
