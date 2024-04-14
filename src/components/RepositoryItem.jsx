@@ -53,7 +53,7 @@ function formatNumber(num) {
 }
 
 const RepositoryItem = ({ item }) => (
-    <View style={styles.container}>
+    <View style={styles.container} testID="repositoryItem">
         <View style={styles.topRow}>
             <Image
                 style={styles.picture}
@@ -69,21 +69,21 @@ const RepositoryItem = ({ item }) => (
         </View>
 
         <View style={styles.statContainer}>
-            <View style={styles.statItem}>
+            <View style={styles.statItem} testID="stars">
                 <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.stargazersCount)}</Text>
                 <Text style={styles.secondaryText}>Stars</Text>
             </View>
-            <View style={styles.statItem}>
+            <View style={styles.statItem} testID="forks">
                 <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.forksCount)}</Text>
                 <Text style={styles.secondaryText}>Forks</Text>
             </View>
 
-            <View style={styles.statItem}>
+            <View style={styles.statItem} testID="reviews">
                 <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.reviewCount)}</Text>
                 <Text style={styles.secondaryText}>Reviews</Text>
             </View>
 
-            <View style={styles.statItem}>
+            <View style={styles.statItem} testID="rating">
                 <Text fontSize='subheading' fontWeight='bold'>{formatNumber(item.ratingAverage)}</Text>
                 <Text style={styles.secondaryText}>Rating</Text>
             </View>

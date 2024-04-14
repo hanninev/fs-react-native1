@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 import theme from '../theme'
 import { Link } from 'react-router-native';
 import { GET_CURRENT_USER } from '../graphql/queries';
-import { useQuery, useApolloClient, ApolloClient } from '@apollo/client';
+import { useQuery, useApolloClient } from '@apollo/client';
 import useAuthStorage from '../hooks/useAuthStorage';
 
 const styles = StyleSheet.create({
@@ -43,7 +43,7 @@ const handleSignOut = async () => {
                     <NativeText style={styles.text}>Repositories</NativeText>
                 </Link>
             </Pressable>
-            {data.me ?
+            {data?.me ?
                 <Pressable onPress={handleSignOut}>
                     <NativeText style={styles.text}>Sign out</NativeText>
                 </Pressable>
