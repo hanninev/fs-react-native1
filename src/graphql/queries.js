@@ -5,7 +5,7 @@ export const GET_REPOSITORIES = gql`
     repositories {
         edges {
           node {
-            description,forksCount,language,ownerAvatarUrl,reviewCount,stargazersCount,fullName,forksCount,ratingAverage
+            id,description,forksCount,language,ownerAvatarUrl,reviewCount,stargazersCount,fullName,forksCount,ratingAverage
           }
         }
       }
@@ -19,4 +19,27 @@ export const GET_CURRENT_USER = gql`
       username
     }
   }
+`;
+
+export const GET_REPOSITORY = gql`
+  query ($repositoryId: ID!) {
+      repository(id: $repositoryId) {
+        id
+        ownerName
+        name
+        createdAt
+        fullName
+        ratingAverage
+        reviewCount
+        stargazersCount
+        watchersCount
+        forksCount
+        openIssuesCount
+        url
+        ownerAvatarUrl
+        description
+        language
+        userHasReviewed
+      }
+    }
 `;
