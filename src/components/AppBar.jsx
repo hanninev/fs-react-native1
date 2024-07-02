@@ -52,10 +52,14 @@ const AppBar = () => {
                 <Pressable onPress={handleSignOut}>
                     <NativeText style={styles.text}>Sign out</NativeText>
                 </Pressable></>
-                : <Pressable>
+                : <><Pressable>
                     <Link to="/signin">
                         <NativeText style={styles.text}>Sign in</NativeText>
                     </Link></Pressable>
+                    <Pressable>
+                    <Link to="/signup">
+                        <NativeText style={styles.text}>Sign up</NativeText>
+                    </Link></Pressable></>
             }
         </ScrollView>
     </View >;
