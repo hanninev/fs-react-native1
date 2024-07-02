@@ -31,10 +31,10 @@ const AppBar = () => {
         fetchPolicy: 'cache-and-network',
     });
 
-const handleSignOut = async () => {
-    await authStorage.removeAccessToken();
-    apolloClient.resetStore();
-}
+    const handleSignOut = async () => {
+        await authStorage.removeAccessToken();
+        apolloClient.resetStore();
+    }
 
     return <View style={styles.container}>
         <ScrollView horizontal>
@@ -43,10 +43,15 @@ const handleSignOut = async () => {
                     <NativeText style={styles.text}>Repositories</NativeText>
                 </Link>
             </Pressable>
-            {data?.me ?
+            {data?.me ? <>
+                <Pressable>
+                    <Link to="/create-review">
+                        <NativeText style={styles.text}>Create a review</NativeText>
+                    </Link>
+                </Pressable>
                 <Pressable onPress={handleSignOut}>
                     <NativeText style={styles.text}>Sign out</NativeText>
-                </Pressable>
+                </Pressable></>
                 : <Pressable>
                     <Link to="/signin">
                         <NativeText style={styles.text}>Sign in</NativeText>

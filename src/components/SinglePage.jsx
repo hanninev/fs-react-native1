@@ -48,9 +48,11 @@ const ItemSeparator = () => {
 const SinglePage = () => {
     let { repositoryId } = useParams();
     const { loading, error, data } = useQuery(GET_REPOSITORY, {
+        fetchPolicy: 'cache-and-network',
         variables: { repositoryId }
     });
     const { data: reviews } = useQuery(GET_REVIEWS_BY_REPOSITORY_ID, {
+        fetchPolicy: 'cache-and-network',
         variables: { repositoryId },
     });
 
@@ -73,7 +75,7 @@ const SinglePage = () => {
 
     return (
         <FlatList
-            data={reviews.repository.reviews.edges}
+            data={reviews?.repository?.reviews.edges}
             renderItem={({ item }) => <ReviewItem review={item} />}
             keyExtractor={({ id }) => id}
             ListHeaderComponent={() => <View><RepositoryItem singleView={true} item={data.repository} /><ItemSeparator /></View>}

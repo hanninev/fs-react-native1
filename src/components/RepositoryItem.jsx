@@ -82,6 +82,7 @@ const OpenURLButton = ({ url, children }) => {
 };
 
 const RepositoryItem = ({ item, singleView = false }) => {
+    if (!item) return;
     return (
         <View style={styles.container} testID="repositoryItem">
             <View style={styles.topRow}>
