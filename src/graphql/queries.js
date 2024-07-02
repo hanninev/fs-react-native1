@@ -33,6 +33,10 @@ query getCurrentUser($includeReviews: Boolean = false) {
             text
             createdAt
             repositoryId
+            repository {
+              name
+              ownerName
+            }
             user {
               id
               username
